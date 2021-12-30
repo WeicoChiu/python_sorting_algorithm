@@ -10,17 +10,16 @@ def quick_sort(A, low, high):
         quick_sort(A, pivot+1, high)
 
 def partition(A, low, high):
-    i, pivot = low-1, high
+    i, pivot = low, high
 
     for j in range(low, high):
         if A[j] < A[pivot]:
-            i += 1
             A[i], A[j] = A[j], A[i]
+            i += 1
 
-    A[i+1], A[pivot] = A[pivot], A[i+1]
-    pivot = i + 1
+    A[i], A[pivot] = A[pivot], A[i]
 
-    return pivot
+    return i
 
 
 unorder = [5, 3, 8, 6, 2, 7, 1, 4]
